@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anjansenn-creator.github.io/senbrosguineapalace/sitemap.xml
