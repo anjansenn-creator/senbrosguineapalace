@@ -830,3 +830,121 @@ img { max-width: 100%; height: auto; display: block; }
   .field-row { grid-template-columns: 1fr; }
   .form-card { padding: 24px 18px; }
 }
+
+
+/* =========================================================
+   GOLD ATMOSPHERE & ANIMATIONS (WARMTH & OPULENCE)
+   ========================================================= */
+
+/* Warm Champagne Silk Palette */
+:root {
+  --paper: #f9f6f0;
+  --cream: #f3ede2;
+  --gold-glow: rgba(177, 139, 76, 0.22);
+}
+
+/* Ambient Golden Aura in the Background */
+body {
+  background-color: var(--paper);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(218, 178, 101, 0.10) 0%, transparent 45%),
+    radial-gradient(circle at 85% 45%, rgba(177, 139, 76, 0.09) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(218, 178, 101, 0.08) 0%, transparent 55%);
+  background-attachment: fixed;
+}
+
+/* Liquid Gold Shimmer Animation on Italic Words */
+@keyframes goldShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+h1 em, h2 em, .carousel-heading em {
+  background: linear-gradient(
+    110deg,
+    #9c7634 0%,
+    #d8b168 25%,
+    #fff4d0 50%,
+    #d8b168 75%,
+    #9c7634 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 5s linear infinite;
+  display: inline-block;
+  font-weight: 500;
+}
+
+/* Gold Glow on Design Cards */
+.design-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(177, 139, 76, 0.3);
+  box-shadow: 0 8px 24px rgba(177, 139, 76, 0.07);
+}
+
+.design-card:hover {
+  border-color: rgba(177, 139, 76, 0.85);
+  box-shadow: 0 14px 34px rgba(25, 61, 52, 0.12), 0 0 20px rgba(218, 178, 101, 0.35);
+  transform: translateY(-6px);
+}
+
+/* Trust Strip Gold Styling */
+.trust-strip {
+  background: #fdfcf9;
+  border-top: 1px solid rgba(177, 139, 76, 0.25);
+  border-bottom: 1px solid rgba(177, 139, 76, 0.25);
+}
+
+.trust-icon {
+  color: var(--gold);
+  display: inline-block;
+  animation: goldTwinkle 3s ease-in-out infinite;
+}
+
+@keyframes goldTwinkle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+    filter: drop-shadow(0 0 2px rgba(177, 139, 76, 0.4));
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.85));
+  }
+}
+
+/* Sweeping Gold Light Beam on Action Buttons */
+.btn.primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn.primary::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -70%;
+  width: 45%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 235, 160, 0.45),
+    transparent
+  );
+  transform: rotate(25deg);
+  animation: sweepGold 4s ease-in-out infinite;
+}
+
+@keyframes sweepGold {
+  0% { left: -70%; }
+  35%, 100% { left: 140%; }
+}
+
+/* Subtle Gold Borders on Form */
+.form-card {
+  border: 1px solid rgba(177, 139, 76, 0.3);
+  box-shadow: 0 10px 30px rgba(177, 139, 76, 0.06);
+}
