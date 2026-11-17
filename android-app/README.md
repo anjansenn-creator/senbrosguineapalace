@@ -1,22 +1,15 @@
 # Sen Bros Customer Book
 
-An Android Studio project for keeping customer details and purchase history on one Android device.
+Open this project folder in Android Studio. It uses Android Gradle Plugin 9.4.0 with Gradle 9.6. The app works offline and keeps customer records in its private SQLite database.
 
-## Open in Android Studio
+## Features
+- Search and edit customers, and search or edit purchases.
+- Filter purchases by date and search item, category, or notes.
+- Record purchase date, item, category, quantity, price, payment, amount paid, notes, and a scanned bill attachment.
+- Export, share, and print customer PDFs; export an Excel workbook with Customers and Purchases sheets.
+- Back up and restore all records. In Android's file chooser, choose Google Drive as the file location. To attach a bill, scan it in Google Drive first, then select its PDF or image from the attachment picker.
 
-Open this `android-app` folder in Android Studio. Allow Android Studio to sync Gradle and install the Android SDK platform requested by the project (API 35). Run the `app` configuration on an Android phone or emulator.
+## Keep existing records when updating
+Install the new APK over the existing app on the same phone; do not uninstall the old app first. The app upgrades its database in place. Keep a backup in Drive before restoring a backup, because restore replaces records currently on the phone.
 
-## What it does
-
-- Creates a sequential customer code (`SBGP-000001`, and so on).
-- Saves customer name, address, primary and alternate phone, and email.
-- Searches customer name, code, and primary phone.
-- Records each purchase date, item, quantity, unit price, payment details, and amount paid.
-- Exports a customer statement as a PDF through Android's Save dialog.
-- Stores data in the app's private SQLite database. The app does not request network access and Android backup is disabled.
-
-The database belongs to this app installation on this device. Uninstalling the app or losing the device can remove the records. Save customer PDFs somewhere backed up if you need copies outside the phone.
-
-## Notes
-
-This starter app has no account login or cloud synchronization. Customer records are only available inside this app on this device. PDF export includes contact fields and purchase history in a table.
+The app requests no network access. Google Drive access uses Android's document picker and requires the Drive app/account to be available on the phone. Backup and restore are user initiated.
