@@ -1,36 +1,18 @@
-# Sen Bros Guinea Palace - Modernized Website Package
+# Sen Bros Guinea Palace — Version 2
 
-This package contains all modernized source files for **Sen Bros Guinea Palace** (`anjansenn-creator/senbrosguineapalace`).
+This is a complete three-page version of the site with a more refined visual layout and the top Dhanteras ticker removed. The Home, Jewellery, Contact, map, enquiry form, WhatsApp button, SEO metadata, and GitHub Pages URLs are retained.
 
-## What Was Updated:
-1. **Typography Scaling**:
-   - Brand name in header enlarged from 13px/17px to **20px–22px** with an elegant **11px** gold sub-title.
-   - Main navigation font enlarged to **14px** for effortless scanning.
-   - Action buttons enlarged to **13px** with generous padding and uppercase tracking.
-   - Body copy set to modern **16px** (1rem) baseline.
-   - Footer and announcement text scaled up to meet WCAG AA legibility guidelines.
+## Preview
 
-2. **Modern Glassmorphic Sticky Header**:
-   - The navigation bar now stays pinned to the top as visitors scroll, with a subtle 12px backdrop blur and light elevation shadow.
+Open `index.html` in a browser, or open this folder in VS Code and use a local preview extension such as Live Server.
 
-3. **Signature 3D Jewellery Showcase Carousel**:
-   - Integrated a smooth CSS scroll-snap multi-card carousel right on the homepage.
-   - Displays 4 distinct 3D photorealistic studio renders:
-     1. Traditional Bengali 22K Gold Filigree Bridal Choker
-     2. Royal Antique 22K Mayur (Peacock) Bala Bangles
-     3. Royal Kundan & Pearl Chandelier Jhumka Earrings
-     4. Emerald & Brilliant Diamond Halo Cocktail Ring
-   - Each card includes purity badges and a 1-tap **"Enquire on WhatsApp"** button.
+## Publish Version 2
 
-4. **Trust & Authenticity Banner**:
-   - Added a four-point trust strip showcasing BIS 916 Hallmarked purity, Bengal karigari, bespoke custom orders, and transparent pricing.
+To make Version 2 live, upload the files inside this folder to the root of the `anjansenn-creator/senbrosguineapalace` repository, replacing the files with matching names. Keep `index.html` at the repository root and leave the Pages source set to branch `main`, folder `/(root)`. GitHub Pages will publish the new version after the commit.
 
-## How to Deploy to GitHub Pages:
-- Unzip this folder and copy all files (`index.html`, `styles.css`, `script.js`, `products.html`, `contact.html`, and the `images/` directory) into your local repository.
-- Run:
-  ```bash
-  git add .
-  git commit -m "Modernize typography, enlarge brand name, and add 3D designs carousel"
-  git push origin main
-  ```
-- Or drag-and-drop the files into GitHub in your web browser!
+The Version 1 site with the Dhanteras ticker is preserved in `../SenBrosGuineaPalace-v1-backup.zip`.
+
+## Contact enquiries
+
+The contact form submits in the background through FormSubmit and sends enquiries to `anjansenn@gmail.com`; visitors do not need an email app. Before public use, submit one test enquiry and click the activation link FormSubmit emails to the store address. This one-time activation is required by the email delivery service. The form then shows sending, success, or error feedback on the page. FormSubmit is an external service and must be reachable for submissions to arrive.
+
