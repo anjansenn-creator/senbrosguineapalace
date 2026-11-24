@@ -47,7 +47,10 @@ if (enquiryForm) {
       if (status) status.textContent = 'Thank you — your enquiry has been sent. Our team will be in touch soon.';
     } catch (error) {
       console.error('Enquiry submission failed:', error);
-      if (status) status.textContent = 'Sorry, your enquiry could not be sent just now. Please try again or contact us at anjansenn@gmail.com.';
+      const reason = error instanceof Error ? error.message : '';
+      if (status) status.textContent = reason
+        ? `Sorry, the enquiry was not sent (${reason}). Please try again or contact us at anjansenn@gmail.com.`
+        : 'Sorry, your enquiry could not be sent just now. Please try again or contact us at anjansenn@gmail.com.';
     } finally {
       if (submitButton) { submitButton.disabled = false; submitButton.removeAttribute('aria-busy'); }
     }
