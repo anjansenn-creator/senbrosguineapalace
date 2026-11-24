@@ -24,24 +24,29 @@ if (enquiryForm) {
     if (!enquiryForm.reportValidity()) return;
     const status = document.querySelector('#form-status');
     const submitButton = enquiryForm.querySelector('[type="submit"]');
-    const values = new FormData(enquiryForm);
-    values.set('_subject', `Website enquiry — ${values.get('interest') || 'General enquiry'}`);
-    values.set('_replyto', values.get('email'));
+    const values = Object.fromEntries(new FormData(enquiryForm).entries());
+    values._subject = `Website enquiry — ${values.interest || 'General enquiry'}`;
+    values._replyto = values.email;
+    values._url = window.location.href;
     if (status) status.textContent = 'Sending your enquiry…';
     if (submitButton) { submitButton.disabled = true; submitButton.setAttribute('aria-busy', 'true'); }
     try {
       const response = await fetch('https://formsubmit.co/ajax/anjansenn@gmail.com', {
         method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: values
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify(values)
       });
       const result = await response.json();
-      if (!response.ok || result.success === 'false' || result.success === false) {
+      if (!response.ok || String(result.success).toLowerCase() !== 'true') {
         throw new Error(result.message || 'The form service could not accept your enquiry.');
       }
       enquiryForm.reset();
       if (status) status.textContent = 'Thank you — your enquiry has been sent. Our team will be in touch soon.';
     } catch (error) {
+      console.error('Enquiry submission failed:', error);
       if (status) status.textContent = 'Sorry, your enquiry could not be sent just now. Please try again or contact us at anjansenn@gmail.com.';
     } finally {
       if (submitButton) { submitButton.disabled = false; submitButton.removeAttribute('aria-busy'); }
